@@ -1,0 +1,16 @@
+export const enum EndpointsService {
+  PUBLIC = '/',
+  SIGNIN = 'auth/login',
+  LOGOUT = 'auth/logout',
+  PDF = 'pdf',
+  VERIFYEMAIL = 'auth/email/verification-notification/',
+  FORGOTPASSWORD = 'auth/forgot-password',
+  RESETPASSWORD = 'auth/reset-password',
+  UPDATEPROFILE = 'auth/profile',
+  ME = 'auth/me',
+  REFRESHTOKEN = 'auth/refresh',
+  SIGNUP = 'auth/register',
+  USERS = 'protected/users',
+  TASKS = 'protected/tasks',
+  ROLES = 'protected/roles',
+}

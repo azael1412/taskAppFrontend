@@ -1,0 +1,7 @@
+**/.gitignore
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+**/.txt
+**/.md
