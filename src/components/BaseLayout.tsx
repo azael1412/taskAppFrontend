@@ -1,5 +1,4 @@
-import { FC } from 'react'
-
+import { FC, JSX } from 'react'
 import { AppStore } from '@/store'
 import { lightTheme, darkTheme } from '@/themes'
 import { hideMessage } from '@/store/reducers/snackbar'
