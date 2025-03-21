@@ -70,7 +70,9 @@ function Create() {
     reset: resetBlocker,
     status,
   } = useBlocker({
-    condition: isDirty,
+    shouldBlockFn: () => isDirty,
+    enableBeforeUnload: false,
+    withResolver: true,
   })
 
   const setShouldRedirect = (value: boolean) => {
@@ -91,7 +93,9 @@ function Create() {
   useEffect(() => {
     if (shouldRedirect) {
       // Desbloquear y luego redirigir
-      proceed()
+      if(proceed){
+        proceed()
+      }
       navigate({
         to: '/protected/tasks',
         search: { currentPage: 1, search: '', perPage: 10 },
@@ -362,8 +366,8 @@ function Create() {
       </Box>
       <ExitDialog
         open={status === 'blocked'}
-        onClose={resetBlocker}
-        onExit={proceed}
+        onClose={resetBlocker|| (() => {})}
+        onExit={proceed|| (() => {})}
       />
     </Paper>
   )

@@ -89,14 +89,18 @@ function Edit() {
     reset: resetBlocker,
     status,
   } = useBlocker({
-    condition: isDirty,
+    shouldBlockFn: () => isDirty,
+    enableBeforeUnload: false,
+    withResolver: true,
   })
 
   // Reiniciar el estado de bloqueo después de guardar o redirigir
   useEffect(() => {
     if (shouldRedirect) {
       // Desbloquear y luego redirigir
-      proceed()
+      if (proceed) {
+        proceed()
+      }
       navigate({
         to: '/protected/users',
         search: { currentPage: 1, search: '', perPage: 10 },
@@ -272,7 +276,7 @@ function Edit() {
 
                 <Grid2
                   size={{ xs: 12, sm: 'auto' }}
-                  // sx={{ ml: { md: 2, lg:0 },/* mt: { xs: 2, md: 15 }*/ }}
+                // sx={{ ml: { md: 2, lg:0 },/* mt: { xs: 2, md: 15 }*/ }}
                 >
                   <Button
                     type="submit"
@@ -292,8 +296,8 @@ function Edit() {
       </Box>
       <ExitDialog
         open={status === 'blocked'}
-        onClose={resetBlocker}
-        onExit={proceed}
+        onClose={resetBlocker || (() => { })}
+        onExit={proceed || (() => { })}
       />
     </Paper>
   )
