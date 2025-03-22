@@ -285,6 +285,7 @@ function Edit() {
                         editor={ClassicEditor}
                         data={value}
                         config={{
+                          licenseKey: 'GPL',
                           toolbar: [
                             'heading',
                             '|',
@@ -293,8 +294,8 @@ function Edit() {
                             //'link',
                             'bulletedList',
                             'numberedList',
-                            '|',
-                            'blockQuote',
+                            // '|',
+                            // 'blockQuote',
                           ],
                         }}
                         onChange={(_, editor) => {

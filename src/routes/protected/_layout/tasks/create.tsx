@@ -271,6 +271,7 @@ function Create() {
                         editor={ClassicEditor}
                         data={value}
                         config={{
+                          licenseKey: 'GPL',
                           toolbar: [
                             'heading',
                             '|',
@@ -279,8 +280,8 @@ function Create() {
                             //'link',
                             'bulletedList',
                             'numberedList',
-                            '|',
-                            'blockQuote',
+                            // '|',
+                            // 'blockQuote',
                           ],
                         }}
                         onChange={(_, editor) => {
