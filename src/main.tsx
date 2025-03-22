@@ -8,7 +8,6 @@ import { createRoot } from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Provider } from 'react-redux'
-import { HelmetProvider } from 'react-helmet-async'
 
 // import '@fontsource/roboto'
 // import '@fontsource/roboto/300.css'
@@ -68,16 +67,13 @@ declare module '@tanstack/react-router' {
 
 // Render the app
 const rootElement = document.getElementById('root')!
-const helmetContext = {}
 
 createRoot(rootElement).render(
   // <StrictMode>
   <Provider store={store}>
-    <HelmetProvider context={helmetContext}>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
       </QueryClientProvider>
-    </HelmetProvider>
   </Provider>,
   //</StrictMode>, 
 )

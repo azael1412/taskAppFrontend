@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import { BRAND_NAME } from '@/constants'
 
-import { Helmet } from 'react-helmet-async'
+
 
 export type HeadProps = {
   title: string
@@ -14,7 +14,7 @@ const Head: FC<HeadProps> = ({ title, description }) => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <Helmet>
+    <>
       {/* Standard metadata tags */}
       <title>{`${BRAND_NAME} | ${title}`}</title>
       <meta name="description" content={desc} />
@@ -24,7 +24,7 @@ const Head: FC<HeadProps> = ({ title, description }) => {
         content={`${currentYear} ${BRAND_NAME} Todos los Derechos Reservados`}
       />
       <meta name="author" content={BRAND_NAME} />
-    </Helmet>
+    </>
   )
 }
 
