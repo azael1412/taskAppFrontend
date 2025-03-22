@@ -279,6 +279,7 @@ function Users() {
             </TableRow>
           </TableHead>
           <TableBody>
+            {data.results.data.length === 0 && (<TableRow><TableCell colSpan={7} align='center' size='medium'>No hay Datos</TableCell></TableRow>)}
             {data.results.data.map((user: User) => (
               <TableRow key={`user-${user.id}`}>
                 <TableCell>{zeroFillNumber(user.id)}</TableCell>
