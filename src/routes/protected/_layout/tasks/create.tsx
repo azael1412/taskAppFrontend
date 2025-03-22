@@ -40,7 +40,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { AxiosError } from 'axios'
 
-import { CKEditor } from '@ckeditor/ckeditor5-react'
+import { CKEditor,} from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
 export const Route = createFileRoute('/protected/_layout/tasks/create')({
@@ -271,6 +271,7 @@ function Create() {
                         editor={ClassicEditor}
                         data={value}
                         config={{
+                          licenseKey: 'GPL',
                           toolbar: [
                             'heading',
                             '|',
@@ -279,8 +280,8 @@ function Create() {
                             //'link',
                             'bulletedList',
                             'numberedList',
-                            '|',
-                            'blockQuote',
+                            // '|',
+                            // 'blockQuote',
                           ],
                         }}
                         onChange={(_, editor) => {
