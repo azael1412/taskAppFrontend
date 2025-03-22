@@ -105,7 +105,7 @@ const PersistentDrawerLeft = () => {
                   variant="h6"
                   noWrap
                   key={route.path}
-                  color="text.primary"
+                  sx={{color: 'white'}}
                 >
                   {routeName} &nbsp;
                 </Typography>
