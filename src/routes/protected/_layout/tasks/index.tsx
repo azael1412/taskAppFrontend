@@ -243,6 +243,7 @@ function Tasks() {
             </TableRow>
           </TableHead>
           <TableBody>
+            {data.results.data.length === 0 && (<TableRow><TableCell colSpan={user?.role.id === 1?5:4} align='center' size='medium'>No hay Datos</TableCell></TableRow>)}
             {data.results.data.map((task: Task | TaskWithoutUser) => (
               <TableRow key={`task-${task.id}`}>
                 <TableCell>{zeroFillNumber(task.id)}</TableCell>
